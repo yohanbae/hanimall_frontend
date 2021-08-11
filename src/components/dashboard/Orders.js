@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from 'react';
-import Link from '@material-ui/core/Link';
+// import Link from '@material-ui/core/Link';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
 import { useAuth } from '../../use-auth';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import {Link} from 'react-router-dom'
 
 // Generate Order Data
 
@@ -61,7 +62,7 @@ const Orders = () => {
             {
             data?.map((row, i) => (
               <TableRow key={i}>
-                <TableCell><Link href={`/product/${row.id}`}>{row.title}</Link></TableCell>
+                <TableCell><Link to={`/product/${row.id}`}>{row.title}</Link></TableCell>
                 <TableCell align="right">${row.price}</TableCell>
                 <TableCell align="right">{row.qty}</TableCell>
                 <TableCell align="right">${row.qty * row.price}</TableCell>
